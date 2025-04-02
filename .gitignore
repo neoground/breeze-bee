@@ -3,8 +3,6 @@
 /var/cache/*
 /var/logs/*
 /app/app.env
-/assets/node_modules/
-/data/
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Vim template

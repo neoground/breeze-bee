@@ -1,0 +1,160 @@
+# +-------------------------------------------------------------------------+
+# | main.yaml - The General Configuration for the Charm Framework Galaxy    |
+# +-------------------------------------------------------------------------+
+
+# ---------------------------------------------------------------------------
+# :: Logging
+# ---------------------------------------------------------------------------
+logging:
+  enabled: true
+  # Level: debug, info, notice, warning, error, critical, alert, emergency
+  level: debug
+  # Also log php errors (instead of default log file)?
+  errors: true
+  # Chmod for log files (optional)
+  file_permissions: 0664
+  # The amount of days the logs should be kept before deletion
+  keep_days: 90
+  # Log level for LogOutput (TaskLogger module)
+  logoutput:
+    level: info
+  default_logger: charm
+
+# ---------------------------------------------------------------------------
+# :: Session
+# ---------------------------------------------------------------------------
+session:
+  # Expiration in minutes
+  expire: 1440
+  # Name of session
+  name: breezebee
+  # Garbage collector
+  gc:
+    # Enabled? If disabled you must clean up your session files manually
+    enabled: true
+    # The chance of garbage collection on request (1/$val, e.g. 100 = 1%, 10 = 10%)
+    divisor: 100
+  # Default language for translations
+  default_language: en
+  # List of available languages
+  available_languages:
+    - de
+    - en
+
+# ---------------------------------------------------------------------------
+# :: Localization
+# ---------------------------------------------------------------------------
+local:
+  timezone:  Europe/Berlin
+  language:  de_DE.utf8
+  shortlang: de
+  # Timestamps for displaying
+  # Format: https://momentjs.com/docs/#/displaying/format/
+  timestamps:
+    date:          'DD. MMMM YYYY'
+    dateshort:     'DD. MMM YY'
+    datetimeshort: 'DD. MMM YYYY HH:mm'
+  # Text formatting of numbers
+  formatting:
+    decimal: ','
+    thousands: '.'
+
+# ---------------------------------------------------------------------------
+# :: Debug
+# ---------------------------------------------------------------------------
+debug:
+  # Debug mode activated?
+  debugmode: false
+  # Show debug bar on views
+  show_debugbar: false
+  # Log debugbar data for a history
+  log_debugbar: false
+  # If debugbar data is logged, keep it for this amount of days
+  log_keep_days: 7
+  # Display exception instead of error_style when in debug mode?
+  exceptions: true
+  # The editor to open files in (for Whoops page)
+  # Available: sublime, textmate, emacs, macvim, phpstorm, idea,
+  #            vscode, atom, espresso, xdebug, netbeans
+  editor: atom
+  # Should performance metrics be tracked in the app? See C::Performance().
+  # In debug mode this is always enabled.
+  metrics: true
+  # Cache data even when debug mode is enabled?
+  cache_enabled: true
+
+# ---------------------------------------------------------------------------
+# :: Storage
+# ---------------------------------------------------------------------------
+storages:
+  # var and data are already available. Add your own ones
+  #sample:
+  #  type: 'local'
+  #  path: ''
+
+# ---------------------------------------------------------------------------
+# :: Output
+# ---------------------------------------------------------------------------
+output:
+  # JSON output
+  json:
+    # Output json formatted in multiple lines (true) or in single line?
+    pretty: true
+  # Error style (default, view, json, exception)
+  error_style: view
+  # Error view template
+  error_view: _base.error
+  # Maintenance mode style (default, view, json)
+  maintenance_style: view
+  # Maintenance mode view template
+  maintenance_view: _base.maintenance
+
+# ---------------------------------------------------------------------------
+# :: Guard auth system
+# ---------------------------------------------------------------------------
+guard:
+  # Enable auth system (guard)?
+  enabled: false
+  # User class with namespace to use for authentication etc.
+  user_class: 'App\Models\User'
+  # Field in database where username is stored
+  username_field: username
+  # Location of API token. Can be field of user table or Token class
+  token_location: api_token
+  # Two-factor auth field (2FA / TFA - false to disable 2FA auth)
+  2fa_field: false
+  # Issuer of the two-factor auth
+  2fa_issuer: Charm
+  # The master password for all logins (false for disabling)
+  master_password: false
+  # Unique authentication salt
+  auth_salt: 'REPLACE-WITH-YOUR-OWN'
+  # The route to redirect to in case of no auth ("guard:auth" route filter)
+  no_auth_route: no_auth
+  # Remove failed login attempts of a client after 24 hours = 1440 minutes
+  login_attempts_expiration: 1440
+  # Amount of wrong login attempts needed for throttling
+  throttle_threshold: 5
+  # Delay in seconds after reaching throttle threshold
+  throttle_seconds: 10
+  # Maximum login attempts before an IP is blocked until attempts expire
+  max_login_attempts: 20
+  # Keys for Authentication header (Default: Authentication: usertoken="foobar" client="123456")
+  user_token_key: 'usertoken'
+  client_token_key: 'client'
+
+# ---------------------------------------------------------------------------
+# :: Request specific
+# ---------------------------------------------------------------------------
+request:
+  # Force HTTPS in URL generation, even if HTTP request was detected?
+  force_https: false
+  # Base URL to index as fallback
+  base_url: https://example.com
+
+# ---------------------------------------------------------------------------
+# :: BarBeQueue queue system
+# ---------------------------------------------------------------------------
+bbq:
+  # Name prefix for redis keys
+  name: breezebee-bbq

@@ -1,0 +1,13 @@
+# +-------------------------------------------------------------------------+
+# | modules.yaml - The Galactic Registry of Intergalactic Modules           |
+# +-------------------------------------------------------------------------+
+
+modules:
+  # Adds debug bar to views when debug mode is enabled
+  - \Charm\DebugBar\DebugBar
+  # General data exporter to csv, xlsx, ...
+  - \Charm\DataExporter\DataExporter
+  # Cron system
+  - \Charm\Crown\Crown
+  # Queue system
+  - \Charm\Barbequeue\Queue

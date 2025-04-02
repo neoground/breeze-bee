@@ -1,0 +1,62 @@
+# +-------------------------------------------------------------------------+
+# | connections.yaml - The Galactic Commlink for Your Intergalactic Contact |
+# +-------------------------------------------------------------------------+
+
+# ---------------------------------------------------------------------------
+# :: SQL Database
+# ---------------------------------------------------------------------------
+database:
+  # Should the database connection be enabled?
+  enabled:   true
+  # Type of database
+  driver:    mysql
+  # Authentication
+  host:      'localhost'
+  username:  ''
+  password:  ''
+  # Database
+  database:  'breezebee'
+  prefix:    'bb_'
+  charset:   utf8mb4
+  collation: utf8mb4_unicode_ci
+  caching:   true
+
+# ---------------------------------------------------------------------------
+# :: Redis
+# ---------------------------------------------------------------------------
+redis:
+  # Should redis be enabled?
+  enabled: true
+  # Driver to use: phpredis (only used if available), predis
+  driver: phpredis
+  scheme: tcp
+  # Authentication
+  host: '127.0.0.1'
+  port: 6379
+  password: ''
+  # Prefix for all stored keys
+  prefix: bb_
+  # Persistent connection
+  persistent: true
+
+# ---------------------------------------------------------------------------
+# :: Email SMTP / API
+# ---------------------------------------------------------------------------
+emails:
+  default:
+    driver: Smtp
+    host: example.com
+    port: 587
+    auth: true
+    authtype: login
+    username: info@example.com
+    password: 'S3cr3tP455w0rD!'
+    usetls: true
+    usessl: false
+    trustall: false
+    fromname: 'Charm Framework'
+    frommail: info@example.com
+  local:
+    type:     sendmail
+    fromname: 'Charm Framework'
+    frommail: 'info@example.com'
