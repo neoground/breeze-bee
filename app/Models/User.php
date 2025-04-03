@@ -43,7 +43,6 @@ class User extends UserModel
             $table->string('secret', 128)->nullable(); // 2FA secret
 
             // User data
-            $table->integer('gender')->nullable(); // 1 - male, 2 - female
             $table->string('name')->nullable();
 
             // API token
