@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the Day model.
+ * This file contains the Measurement model.
  */
 
 namespace App\Models;
@@ -110,16 +110,6 @@ class Measurement extends Model
             $table->decimal('cloudbase', 5, 1)->nullable();
 
             $table->string('forecast', 10)->nullable();
-
-            // Air quality
-            $table->decimal('aq_pm10', 5, 2)->nullable();
-            $table->decimal('aq_pm25', 5, 2)->nullable();
-            $table->decimal('aq_pm1', 5, 2)->nullable();
-            $table->decimal('aq_o3', 5, 2)->nullable();
-            $table->decimal('aq_nh3', 5, 2)->nullable();
-            $table->decimal('aq_co', 5, 2)->nullable();
-            $table->decimal('aq_co2', 5, 2)->nullable();
-            $table->decimal('aq_so2', 5, 2)->nullable();
 
             $table->timestamps();
         };
