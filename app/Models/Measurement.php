@@ -83,21 +83,6 @@ class Measurement extends Model
             $table->decimal('uv', 4, 2)->nullable();
             $table->decimal('radiation', 5, 1)->nullable();
 
-            // Agriculture
-            $table->decimal('leaf_temp_1', 5, 2)->nullable();
-            $table->decimal('leaf_temp_2', 5, 2)->nullable();
-            $table->decimal('leaf_wet_1', 5, 2)->nullable();
-            $table->decimal('leaf_wet_2', 5, 2)->nullable();
-
-            $table->decimal('soil_moist_1', 4, 1)->nullable();
-            $table->decimal('soil_moist_2', 4, 1)->nullable();
-            $table->decimal('soil_moist_3', 4, 1)->nullable();
-            $table->decimal('soil_moist_4', 4, 1)->nullable();
-            $table->decimal('soil_temp_1', 4, 1)->nullable();
-            $table->decimal('soil_temp_2', 4, 1)->nullable();
-            $table->decimal('soil_temp_3', 4, 1)->nullable();
-            $table->decimal('soil_temp_4', 4, 1)->nullable();
-
             // Calculated values
             $table->decimal('app_temp', 5, 2)->nullable();
             $table->decimal('heat_index', 5, 2)->nullable();
