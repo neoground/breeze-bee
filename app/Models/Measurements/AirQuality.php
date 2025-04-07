@@ -33,9 +33,7 @@ class AirQuality extends Model
             $table->increments('id');
 
             $table->dateTime('datetime');
-
-            // This dataset is for an interval of this length in minutes (e.g. 1 = 1 minute = 16:20:00 - 16:20:59)
-            $table->smallInteger('interval')->unsigned();
+            $table->integer('measurement_id')->unsigned();
 
             $table->decimal('aq_pm10', 5, 2)->nullable();
             $table->decimal('aq_pm25', 5, 2)->nullable();

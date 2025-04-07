@@ -37,6 +37,11 @@ class Measurement extends Model
             // This dataset is for an interval of this length in minutes (e.g. 1 = 1 minute = 16:20:00 - 16:20:59)
             $table->smallInteger('interval')->unsigned();
 
+            // Related measurements for this datetime + interval
+            $table->integer('agriculture_id')->unsigned()->nullable();
+            $table->integer('air_quality_id')->unsigned()->nullable();
+            $table->integer('indoor_id')->unsigned()->nullable();
+
             $table->decimal('barometer', 6, 2)->nullable();
 
             $table->decimal('out_temp_1', 5, 2)->nullable();
@@ -48,24 +53,6 @@ class Measurement extends Model
             $table->decimal('out_humidity_2', 4, 1)->nullable();
             $table->decimal('out_humidity_3', 4, 1)->nullable();
             $table->decimal('out_humidity_4', 4, 1)->nullable();
-
-            $table->decimal('in_temp_1', 5, 2)->nullable();
-            $table->decimal('in_temp_2', 5, 2)->nullable();
-            $table->decimal('in_temp_3', 5, 2)->nullable();
-            $table->decimal('in_temp_4', 5, 2)->nullable();
-            $table->decimal('in_temp_5', 5, 2)->nullable();
-            $table->decimal('in_temp_6', 5, 2)->nullable();
-            $table->decimal('in_temp_7', 5, 2)->nullable();
-            $table->decimal('in_temp_8', 5, 2)->nullable();
-
-            $table->decimal('in_humidity_1', 4, 1)->nullable();
-            $table->decimal('in_humidity_2', 4, 1)->nullable();
-            $table->decimal('in_humidity_3', 4, 1)->nullable();
-            $table->decimal('in_humidity_4', 4, 1)->nullable();
-            $table->decimal('in_humidity_5', 4, 1)->nullable();
-            $table->decimal('in_humidity_6', 4, 1)->nullable();
-            $table->decimal('in_humidity_7', 4, 1)->nullable();
-            $table->decimal('in_humidity_8', 4, 1)->nullable();
 
             $table->decimal('rain', 5, 1)->nullable();
             $table->decimal('rain_rate', 5, 1)->nullable();

@@ -33,9 +33,7 @@ class Agriculture extends Model
             $table->increments('id');
 
             $table->dateTime('datetime');
-
-            // This dataset is for an interval of this length in minutes (e.g. 1 = 1 minute = 16:20:00 - 16:20:59)
-            $table->smallInteger('interval')->unsigned();
+            $table->integer('measurement_id')->unsigned();
 
             $table->decimal('leaf_temp_1', 5, 2)->nullable();
             $table->decimal('leaf_temp_2', 5, 2)->nullable();
