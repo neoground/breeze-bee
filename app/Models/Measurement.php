@@ -41,6 +41,7 @@ class Measurement extends Model
             $table->integer('agriculture_id')->unsigned()->nullable();
             $table->integer('air_quality_id')->unsigned()->nullable();
             $table->integer('indoor_id')->unsigned()->nullable();
+            $table->integer('precipitation_id')->unsigned()->nullable();
 
             $table->decimal('barometer', 6, 2)->nullable();
 
@@ -53,14 +54,6 @@ class Measurement extends Model
             $table->decimal('out_humidity_2', 4, 1)->nullable();
             $table->decimal('out_humidity_3', 4, 1)->nullable();
             $table->decimal('out_humidity_4', 4, 1)->nullable();
-
-            $table->decimal('rain', 5, 1)->nullable();
-            $table->decimal('rain_rate', 5, 1)->nullable();
-            $table->decimal('hail', 5, 1)->nullable();
-            $table->decimal('hail_rate', 5, 1)->nullable();
-            $table->decimal('snow', 5, 1)->nullable();
-            $table->decimal('snow_rate', 5, 1)->nullable();
-            $table->decimal('snow_depth', 4, 1)->nullable();
 
             $table->decimal('wind_speed', 4, 1)->nullable();
             $table->decimal('wind_dir', 4, 1)->nullable();
