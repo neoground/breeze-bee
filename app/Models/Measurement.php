@@ -45,15 +45,15 @@ class Measurement extends Model
 
             $table->decimal('barometer', 6, 2)->nullable();
 
-            $table->decimal('out_temp_1', 5, 2)->nullable();
-            $table->decimal('out_temp_2', 5, 2)->nullable();
-            $table->decimal('out_temp_3', 5, 2)->nullable();
-            $table->decimal('out_temp_4', 5, 2)->nullable();
+            $table->decimal('temp_1', 5, 2)->nullable();
+            $table->decimal('temp_2', 5, 2)->nullable();
+            $table->decimal('temp_3', 5, 2)->nullable();
+            $table->decimal('temp_4', 5, 2)->nullable();
 
-            $table->decimal('out_humidity_1', 4, 1)->nullable();
-            $table->decimal('out_humidity_2', 4, 1)->nullable();
-            $table->decimal('out_humidity_3', 4, 1)->nullable();
-            $table->decimal('out_humidity_4', 4, 1)->nullable();
+            $table->decimal('humidity_1', 4, 1)->nullable();
+            $table->decimal('humidity_2', 4, 1)->nullable();
+            $table->decimal('humidity_3', 4, 1)->nullable();
+            $table->decimal('humidity_4', 4, 1)->nullable();
 
             $table->decimal('wind_speed', 4, 1)->nullable();
             $table->decimal('wind_dir', 4, 1)->nullable();
@@ -68,10 +68,7 @@ class Measurement extends Model
             $table->decimal('heat_index', 5, 2)->nullable();
             $table->decimal('humidex', 5, 2)->nullable();
             $table->decimal('windchill', 5, 2)->nullable();
-
-            $table->decimal('out_dewpoint', 5, 2)->nullable();
-            $table->decimal('in_dewpoint', 5, 2)->nullable();
-
+            $table->decimal('dewpoint', 5, 2)->nullable();
             $table->decimal('cloudbase', 5, 1)->nullable();
 
             $table->string('forecast', 10)->nullable();

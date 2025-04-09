@@ -53,6 +53,9 @@ class Indoor extends Model
             $table->decimal('humidity_7', 4, 1)->nullable();
             $table->decimal('humidity_8', 4, 1)->nullable();
 
+            // Calculated values
+            $table->decimal('dewpoint', 5, 2)->nullable();
+
             $table->timestamps();
         };
     }
