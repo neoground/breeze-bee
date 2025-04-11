@@ -45,15 +45,13 @@ class Measurement extends Model
 
             $table->decimal('barometer', 6, 2)->nullable();
 
-            $table->decimal('temp_1', 5, 2)->nullable();
-            $table->decimal('temp_2', 5, 2)->nullable();
-            $table->decimal('temp_3', 5, 2)->nullable();
-            $table->decimal('temp_4', 5, 2)->nullable();
-
-            $table->decimal('humidity_1', 4, 1)->nullable();
-            $table->decimal('humidity_2', 4, 1)->nullable();
-            $table->decimal('humidity_3', 4, 1)->nullable();
-            $table->decimal('humidity_4', 4, 1)->nullable();
+            // Default indoor / outdoor temp + humidity
+            // This is used for typical calculations and default displaying.
+            // For up to 8 additional sensors, see Measurements -> Indoor / Outdoor models.
+            $table->decimal('out_temp', 5, 2)->nullable();
+            $table->decimal('out_humidity', 4, 1)->nullable();
+            $table->decimal('in_temp', 5, 2)->nullable();
+            $table->decimal('in_humidity', 4, 1)->nullable();
 
             $table->decimal('wind_speed', 4, 1)->nullable();
             $table->decimal('wind_dir', 4, 1)->nullable();

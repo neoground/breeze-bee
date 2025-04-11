@@ -1,6 +1,6 @@
 <?php
 /**
- * This file contains the Indoor Measurement model.
+ * This file contains the Outdoor Measurement model.
  */
 
 namespace App\Models\Measurements;
@@ -9,16 +9,16 @@ use Charm\Vivid\Model;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
- * Class Indoor Measurement.
+ * Class Outdoor Measurement.
  *
- * Indoor Measurement model - a single measurement of indoor data.
+ * Outdoor Measurement model - a single measurement of indoor data.
  *
  * @package App\Models
  */
-class Indoor extends Model
+class Outdoor extends Model
 {
     /** @var string table name */
-    protected $table = 'measurements_indoor';
+    protected $table = 'measurements_outdoor';
     
     protected $guarded = ['updated_at'];
 
@@ -52,16 +52,6 @@ class Indoor extends Model
             $table->decimal('humidity_6', 4, 1)->nullable();
             $table->decimal('humidity_7', 4, 1)->nullable();
             $table->decimal('humidity_8', 4, 1)->nullable();
-
-            // Calculated values
-            $table->decimal('dewpoint_1', 5, 2)->nullable();
-            $table->decimal('dewpoint_2', 5, 2)->nullable();
-            $table->decimal('dewpoint_3', 5, 2)->nullable();
-            $table->decimal('dewpoint_4', 5, 2)->nullable();
-            $table->decimal('dewpoint_5', 5, 2)->nullable();
-            $table->decimal('dewpoint_6', 5, 2)->nullable();
-            $table->decimal('dewpoint_7', 5, 2)->nullable();
-            $table->decimal('dewpoint_8', 5, 2)->nullable();
 
             $table->timestamps();
         };
