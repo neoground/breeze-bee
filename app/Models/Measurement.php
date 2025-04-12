@@ -5,7 +5,13 @@
 
 namespace App\Models;
 
+use App\Models\Measurements\Agriculture;
+use App\Models\Measurements\AirQuality;
+use App\Models\Measurements\Indoor;
+use App\Models\Measurements\Outdoor;
+use App\Models\Measurements\Precipitation;
 use Charm\Vivid\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
@@ -19,7 +25,7 @@ class Measurement extends Model
 {
     /** @var string table name */
     protected $table = 'measurements';
-    
+
     protected $guarded = ['updated_at'];
 
     /**
@@ -29,7 +35,7 @@ class Measurement extends Model
      */
     public static function getTableStructure(): \Closure
     {
-        return function(Blueprint $table) {
+        return function (Blueprint $table) {
             $table->increments('id');
 
             $table->dateTime('datetime');
@@ -41,6 +47,7 @@ class Measurement extends Model
             $table->integer('agriculture_id')->unsigned()->nullable();
             $table->integer('air_quality_id')->unsigned()->nullable();
             $table->integer('indoor_id')->unsigned()->nullable();
+            $table->integer('outdoor_id')->unsigned()->nullable();
             $table->integer('precipitation_id')->unsigned()->nullable();
 
             $table->decimal('barometer', 6, 2)->nullable();
@@ -74,5 +81,30 @@ class Measurement extends Model
             $table->timestamps();
         };
     }
-    
+
+    public function agriculture(): HasOne
+    {
+        return $this->hasOne(Agriculture::class, 'agriculture_id');
+    }
+
+    public function airquality(): HasOne
+    {
+        return $this->hasOne(AirQuality::class, 'air_quality_id');
+    }
+
+    public function indoor(): HasOne
+    {
+        return $this->hasOne(Indoor::class, 'indoor_id');
+    }
+
+    public function outdoor(): HasOne
+    {
+        return $this->hasOne(Outdoor::class, 'outdoor_id');
+    }
+
+    public function precipitation(): HasOne
+    {
+        return $this->hasOne(Precipitation::class, 'precipitation_id');
+    }
+
 }

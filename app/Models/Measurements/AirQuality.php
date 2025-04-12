@@ -5,7 +5,9 @@
 
 namespace App\Models\Measurements;
 
+use App\Models\Measurement;
 use Charm\Vivid\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Schema\Blueprint;
 
 /**
@@ -19,7 +21,7 @@ class AirQuality extends Model
 {
     /** @var string table name */
     protected $table = 'measurements_air_quality';
-    
+
     protected $guarded = ['updated_at'];
 
     /**
@@ -29,7 +31,7 @@ class AirQuality extends Model
      */
     public static function getTableStructure(): \Closure
     {
-        return function(Blueprint $table) {
+        return function (Blueprint $table) {
             $table->increments('id');
 
             $table->dateTime('datetime');
@@ -47,5 +49,10 @@ class AirQuality extends Model
             $table->timestamps();
         };
     }
-    
+
+    public function measurement(): BelongsTo
+    {
+        return $this->belongsTo(Measurement::class, 'measurement_id');
+    }
+
 }
