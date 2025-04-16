@@ -45,7 +45,18 @@ class Telemetry extends Model
             $table->decimal('rain_battery_level', 4, 1)->nullable();
             $table->decimal('temp_battery_level', 4, 1)->nullable();
 
-            // TODO Add telemetry support for all kind of sensors
+            // Telemetry for additional sensors (mapping via config)
+            $table->decimal('sensor1_battery_level', 4, 1)->nullable();
+            $table->decimal('sensor1_rx_quality', 4, 1)->nullable();
+
+            $table->decimal('sensor2_battery_level', 4, 1)->nullable();
+            $table->decimal('sensor2_rx_quality', 4, 1)->nullable();
+
+            $table->decimal('sensor3_battery_level', 4, 1)->nullable();
+            $table->decimal('sensor3_rx_quality', 4, 1)->nullable();
+
+            $table->decimal('sensor4_battery_level', 4, 1)->nullable();
+            $table->decimal('sensor4_rx_quality', 4, 1)->nullable();
 
             $table->timestamps();
         };
