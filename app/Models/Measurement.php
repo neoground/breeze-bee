@@ -8,8 +8,10 @@ namespace App\Models;
 use App\Models\Measurements\Agriculture;
 use App\Models\Measurements\AirQuality;
 use App\Models\Measurements\Indoor;
+use App\Models\Measurements\Lightning;
 use App\Models\Measurements\Outdoor;
 use App\Models\Measurements\Precipitation;
+use App\Models\Measurements\Telemetry;
 use Charm\Vivid\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Schema\Blueprint;
@@ -47,8 +49,10 @@ class Measurement extends Model
             $table->integer('agriculture_id')->unsigned()->nullable();
             $table->integer('air_quality_id')->unsigned()->nullable();
             $table->integer('indoor_id')->unsigned()->nullable();
+            $table->integer('lightning_id')->unsigned()->nullable();
             $table->integer('outdoor_id')->unsigned()->nullable();
             $table->integer('precipitation_id')->unsigned()->nullable();
+            $table->integer('telemetry_id')->unsigned()->nullable();
 
             $table->decimal('barometer', 6, 2)->nullable();
 
@@ -97,6 +101,11 @@ class Measurement extends Model
         return $this->hasOne(Indoor::class, 'indoor_id');
     }
 
+    public function lightning(): HasOne
+    {
+        return $this->hasOne(Lightning::class, 'lightning_id');
+    }
+
     public function outdoor(): HasOne
     {
         return $this->hasOne(Outdoor::class, 'outdoor_id');
@@ -105,6 +114,11 @@ class Measurement extends Model
     public function precipitation(): HasOne
     {
         return $this->hasOne(Precipitation::class, 'precipitation_id');
+    }
+
+    public function telemetry(): HasOne
+    {
+        return $this->hasOne(Telemetry::class, 'telemetry_id');
     }
 
 }
