@@ -7,12 +7,14 @@ namespace App\Models;
 
 use App\Models\Measurements\Agriculture;
 use App\Models\Measurements\AirQuality;
+use App\Models\Measurements\Custom;
 use App\Models\Measurements\Indoor;
 use App\Models\Measurements\Lightning;
 use App\Models\Measurements\Outdoor;
 use App\Models\Measurements\Precipitation;
 use App\Models\Measurements\Telemetry;
 use Charm\Vivid\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Schema\Blueprint;
 
@@ -119,6 +121,11 @@ class Measurement extends Model
     public function telemetry(): HasOne
     {
         return $this->hasOne(Telemetry::class, 'telemetry_id');
+    }
+
+    public function custom(): HasMany
+    {
+        return $this->hasMany(Custom::class, 'measurement_id');
     }
 
 }
