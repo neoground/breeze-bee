@@ -37,7 +37,8 @@ class Custom extends Model
             $table->dateTime('datetime');
             $table->integer('measurement_id')->unsigned();
 
-            // Name + value of custom measurement. Configurable via config, to support basically any custom sensor.
+            // Name + value of custom measurement. Configurable via config,
+            // to support basically any custom sensor. See sensors.yaml.
             $table->string('name', 50)->nullable();
             $table->decimal('value', 12, 4)->nullable();
 

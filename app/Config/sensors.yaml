@@ -1,0 +1,10 @@
+# +-------------------------------------------------------------------------+
+# | sensors.yaml - Defining and configuring sensors                         |
+# +-------------------------------------------------------------------------+
+
+# Custom sensors
+custom:
+  # Custom sensor with name "demo"
+  demo:
+    label: "Demo Sensor"
+    unit: "°C"
