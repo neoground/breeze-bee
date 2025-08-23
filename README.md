@@ -77,4 +77,4 @@ Follow us on GitHub and star this project to stay up to date with the latest cha
 BreezeBee is developed and maintained by the team at [Neoground GmbH](https://neoground.com). 
 We aim to push the boundaries of digital solutions, with a focus on modern, responsive, and intelligent apps.
 
-Copyright (c) 2024-2025 Neoground GmbH
+Copyright (c) 2024 – 2025 Neoground GmbH
